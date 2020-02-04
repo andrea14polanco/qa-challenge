@@ -10,10 +10,10 @@ import org.testng.annotations.Test;
 public class NavBarSmokeTest extends BaseTest {
 
 
-
-
     @Test(priority = 1)
     public void NavBarOnHomePageTest(){
+        changeResolution(1350,768);
+
         HomePage hp = new HomePage();
 
         hp.clickHomeNavBarBtn();
