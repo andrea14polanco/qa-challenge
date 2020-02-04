@@ -12,7 +12,7 @@ public class NavBarSmokeTest extends BaseTest {
 
     @Test(priority = 1)
     public void NavBarOnHomePageTest(){
-        changeResolution(1350,768);
+        changeResolution(50,768);
 
         HomePage hp = new HomePage();
 
@@ -24,7 +24,7 @@ public class NavBarSmokeTest extends BaseTest {
 
     }
 
-   //   @Test(priority = 2)
+    @Test(priority = 2)
     public void NavBarOnOnlineBankingPageTest(){
         OnlineBankingPage obp = new OnlineBankingPage();
 

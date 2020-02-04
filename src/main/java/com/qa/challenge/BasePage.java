@@ -30,7 +30,7 @@ public class BasePage {
         options.setExperimentalOption("useAutomationExtension", false);
 
         webDriver = new ChromeDriver(options);
-       // webDriver.manage().window().maximize();
+        webDriver.manage().window().maximize();
 
         wait = new WebDriverWait(webDriver, 20,2);
     }
