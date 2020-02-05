@@ -12,7 +12,7 @@ public class NavBarSmokeTest extends BaseTest {
 
     @Test(priority = 1)
     public void NavBarOnHomePageTest(){
-        changeResolution(50,768);
+        //changeResolution(50,768);
 
         HomePage hp = new HomePage();
 

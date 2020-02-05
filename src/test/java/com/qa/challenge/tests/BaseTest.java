@@ -11,15 +11,16 @@ public class BaseTest extends BasePage {
 
     @BeforeClass
     public void setUp() {
+        //Start Chrome driver
         startDrivers();
-        //  LoginPage loginPage = new LoginPage();
-        //loginPage.login();
+
+        //Navigate to zero.webappsecurity
         getWebDriver().get(URL);
 
     }
 
-    public void changeResolution(int width, int height){
-        Dimension dimension = new Dimension(width, height);
+    public void changeResolution(String width, String height){
+        Dimension dimension = new Dimension(Integer.parseInt(width), Integer.parseInt(height));
         getWebDriver().manage().window().setSize(dimension);
     }
 
