@@ -81,6 +81,10 @@ public class BasePage {
         return  webDriver.findElement(elementBy).isDisplayed();
     }
 
+    public boolean isElementPresentOnPage(By elementBy){
+        return  webDriver.findElements(elementBy).size() !=0;
+    }
+
     public WebDriver getWebDriver() {
         return webDriver;
     }
