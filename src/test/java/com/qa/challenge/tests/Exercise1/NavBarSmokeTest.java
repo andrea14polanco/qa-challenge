@@ -12,8 +12,7 @@ public class NavBarSmokeTest extends BaseTest {
 
     @Test(priority = 1)
     public void NavBarOnHomePageTest(){
-        //changeResolution(50,768);
-
+        getWebDriver().get(URL);
         HomePage hp = new HomePage();
 
         hp.clickHomeNavBarBtn();
@@ -26,6 +25,7 @@ public class NavBarSmokeTest extends BaseTest {
 
     @Test(priority = 2)
     public void NavBarOnOnlineBankingPageTest(){
+        getWebDriver().get(URL);
         OnlineBankingPage obp = new OnlineBankingPage();
 
         obp.clickOnlineBankNavBarBtn();
@@ -38,6 +38,7 @@ public class NavBarSmokeTest extends BaseTest {
 
     @Test(priority = 3)
     public void NavBarFeedBackPageTest(){
+        getWebDriver().get(URL);
         FeedbackPage fp = new FeedbackPage();
 
         fp.clickFeedNavBarBtn();
