@@ -20,10 +20,6 @@ public class BasePage {
     }
 
     public void startDrivers() {
-        if (webDriver != null) {//Thinking if this should be an exception :D
-            return;
-        }
-
         System.setProperty(resourceBundle.getString("driver-key"), resourceBundle.getString("driver-path"));
 
         ChromeOptions options = new ChromeOptions();

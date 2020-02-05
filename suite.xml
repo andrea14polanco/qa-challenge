@@ -11,4 +11,9 @@
             <class name="com.qa.challenge.tests.Exercise1.ResolutionSmokeTests"/>
         </classes>
     </test>
+    <test name="ContactFormTest" preserve-order="true" >
+        <classes>
+            <class name="com.qa.challenge.tests.Exercise1.ContactFormSmokeTest"/>
+        </classes>
+    </test>
 </suite>

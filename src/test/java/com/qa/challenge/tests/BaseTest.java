@@ -23,7 +23,7 @@ public class BaseTest extends BasePage {
 
     @AfterTest
     public void tearDow(){
-        //killDriver();
+        killDriver();
     }
 
 

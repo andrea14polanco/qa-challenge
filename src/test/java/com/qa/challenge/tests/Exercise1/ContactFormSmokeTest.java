@@ -41,6 +41,7 @@ public class ContactFormSmokeTest extends BaseTest {
 
     @Test
     public void clickBtnSendWithAllFieldsEmptyTest() throws InterruptedException {
+        getWebDriver().get(URL);
         FeedbackPage fp = new FeedbackPage();
 
         fp.clickFeedNavBarBtn();
@@ -54,6 +55,7 @@ public class ContactFormSmokeTest extends BaseTest {
 
     @Test
     public void clickBtnSendWithNameInptFilledTest() throws InterruptedException {
+        getWebDriver().get(URL);
         FeedbackPage fp = new FeedbackPage();
 
         fp.clickFeedNavBarBtn();
