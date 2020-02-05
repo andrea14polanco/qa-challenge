@@ -7,11 +7,14 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest extends BasePage {
 
+    private static String URL = "http://zero.webappsecurity.com/index.html";
+
     @BeforeClass
     public void setUp() {
         startDrivers();
         //  LoginPage loginPage = new LoginPage();
         //loginPage.login();
+        getWebDriver().get(URL);
 
     }
 
