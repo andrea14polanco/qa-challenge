@@ -1,12 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="QaChallengeTests">
-<!--
     <test name="NavBarTests" preserve-order="true" >
         <classes>
             <class name="com.qa.challenge.tests.Exercise1.NavBarSmokeTest" />
         </classes>
-    </test>-->
+    </test>
     <test name="ResolutionTests" preserve-order="true" >
         <classes>
             <class name="com.qa.challenge.tests.Exercise1.ResolutionSmokeTests"/>
