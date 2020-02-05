@@ -8,13 +8,39 @@ import org.testng.annotations.Test;
 
 public class ContactFormSmokeTest extends BaseTest {
 
-    @Test(dataProvider = "")
-    public void fillContactFormTest(String name,String email, String subject, String comments, boolean isCorrect){
+    @Test(dataProvider = "DataProvider")
+    public void fillContactFormTest(String name,String email, String subject, String comments, boolean isInputIncorrect){
+        getWebDriver().get(URL);
 
+        FeedbackPage fp = new FeedbackPage();
+
+        fp.clickFeedNavBarBtn();
+
+        Assert.assertTrue(fp.isAtFeedbackPage());
+
+        fp.fillContactFormInptName(name);
+        fp.fillContactFormInptEmail(email);
+        fp.fillContactFormInptSubject(subject);
+        fp.fillContactFormInptComments(comments);
+
+        fp.clickSendBtn();
+
+        Assert.assertEquals(isInputIncorrect, fp.isSendMessageBtnPresent());
+    }
+
+    @DataProvider(name="DataProvider")
+    public Object[][] getDataFromDataprovider(){
+        return new Object[][]
+                {
+                        { "a", "a", "a", "a", true },
+                        { "12131", "454", "455", "44", true},
+                        { "@@#$", "##@#@", "#@#@", "#@##", true },
+                        { "Andrea", "a15@gmail.com", "Test", "Comments", false }
+                };
     }
 
     @Test
-    public void clickBtnSendWithAllFieldsEmptyTest(){
+    public void clickBtnSendWithAllFieldsEmptyTest() throws InterruptedException {
         FeedbackPage fp = new FeedbackPage();
 
         fp.clickFeedNavBarBtn();
@@ -23,20 +49,22 @@ public class ContactFormSmokeTest extends BaseTest {
 
         fp.clickSendBtn();
 
-        Assert.assertFalse(fp.isSubmissionTextPresent());
-
-
-
+        Assert.assertTrue(fp.isSendMessageBtnPresent());
     }
 
+    @Test
+    public void clickBtnSendWithNameInptFilledTest() throws InterruptedException {
+        FeedbackPage fp = new FeedbackPage();
 
-    @DataProvider(name="ResolutionProvider")
-    public Object[][] getDataFromDataprovider(){
-        return new Object[][]
-                {
-                        { "", "", "", "", true },
-                        { "", "", "", "", false},
-                        { "", "", "", "", false }
-                };
+        fp.clickFeedNavBarBtn();
+
+        Assert.assertTrue(fp.isAtFeedbackPage());
+
+        fp.fillContactFormInptName("a");
+
+        fp.clickSendBtn();
+
+        Assert.assertTrue(fp.isSendMessageBtnPresent());
     }
+
 }

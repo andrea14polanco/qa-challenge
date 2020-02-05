@@ -89,6 +89,10 @@ public class BasePage {
         return webDriver;
     }
 
+    public WebDriverWait getWebDriverWait() {
+        return wait;
+    }
+
     public boolean isAnExistingElement(By elementBy){
         if (webDriver.findElements(elementBy).size()!=0)
             return true;
