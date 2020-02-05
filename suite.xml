@@ -1,0 +1,30 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="QaChallengeTests">
+<!--
+    <test name="NavBarTests" preserve-order="true" >
+        <classes>
+            <class name="com.qa.challenge.tests.Exercise1.NavBarSmokeTest" />
+        </classes>
+    </test>-->
+    <test name="ResolutionTests" preserve-order="true" >
+        <classes>
+            <class name="com.qa.challenge.tests.Exercise1.ResolutionSmokeTests">
+                <methods>
+                    <include name="WebPageIPadResolutionTest">
+                        <parameter name="width" value="1024"/>
+                        <parameter name="height" value="1366"/>
+                    </include>
+                    <include name="WebPageIPhoneResolutionTest">
+                        <parameter name="width" value="414"/>
+                        <parameter name="height" value="736"/>
+                    </include>
+                    <include name="WebPageSamSungResolutionTest">
+                        <parameter name="width" value="360"/>
+                        <parameter name="height" value="640"/>
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
