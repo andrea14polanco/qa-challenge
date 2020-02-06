@@ -9,15 +9,12 @@ import org.testng.annotations.BeforeTest;
 
 public class BaseTest extends BasePage {
 
-    public static String URL = "http://zero.webappsecurity.com/index.html";
+
 
     @BeforeTest
     public void setUp() {
         //Start Chrome driver
         startDrivers();
-
-        //Navigate to zero.webappsecurity
-        getWebDriver().get(URL);
 
     }
 
@@ -25,6 +22,7 @@ public class BaseTest extends BasePage {
     public void tearDow(){
         killDriver();
     }
+
 
 
     public void changeResolution(String width, String height){

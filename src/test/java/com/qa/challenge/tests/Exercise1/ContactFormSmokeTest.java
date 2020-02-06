@@ -7,10 +7,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class ContactFormSmokeTest extends BaseTest {
+    public static String URL = "http://zero.webappsecurity.com/index.html";
 
     @Test(dataProvider = "DataProvider")
     public void fillContactFormTest(String name,String email, String subject, String comments, boolean isInputIncorrect){
-        getWebDriver().get(URL);
+        goTo(URL);
 
         FeedbackPage fp = new FeedbackPage();
 
@@ -41,7 +42,8 @@ public class ContactFormSmokeTest extends BaseTest {
 
     @Test
     public void clickBtnSendWithAllFieldsEmptyTest() throws InterruptedException {
-        getWebDriver().get(URL);
+        goTo(URL);
+
         FeedbackPage fp = new FeedbackPage();
 
         fp.clickFeedNavBarBtn();
@@ -55,7 +57,8 @@ public class ContactFormSmokeTest extends BaseTest {
 
     @Test
     public void clickBtnSendWithNameInptFilledTest() throws InterruptedException {
-        getWebDriver().get(URL);
+        goTo(URL);
+
         FeedbackPage fp = new FeedbackPage();
 
         fp.clickFeedNavBarBtn();

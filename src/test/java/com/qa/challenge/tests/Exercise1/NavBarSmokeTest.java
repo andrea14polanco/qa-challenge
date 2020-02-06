@@ -8,11 +8,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class NavBarSmokeTest extends BaseTest {
-
+    public static String URL = "http://zero.webappsecurity.com/index.html";
 
     @Test(priority = 1)
     public void NavBarOnHomePageTest(){
-        getWebDriver().get(URL);
+       goTo(URL);
         HomePage hp = new HomePage();
 
         hp.clickHomeNavBarBtn();
@@ -25,7 +25,8 @@ public class NavBarSmokeTest extends BaseTest {
 
     @Test(priority = 2)
     public void NavBarOnOnlineBankingPageTest(){
-        getWebDriver().get(URL);
+        goTo(URL);
+
         OnlineBankingPage obp = new OnlineBankingPage();
 
         obp.clickOnlineBankNavBarBtn();
@@ -38,7 +39,8 @@ public class NavBarSmokeTest extends BaseTest {
 
     @Test(priority = 3)
     public void NavBarFeedBackPageTest(){
-        getWebDriver().get(URL);
+        goTo(URL);
+
         FeedbackPage fp = new FeedbackPage();
 
         fp.clickFeedNavBarBtn();

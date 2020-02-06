@@ -8,13 +8,13 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class ResolutionSmokeTests extends BaseTest {
-
+    public static String URL = "http://zero.webappsecurity.com/index.html";
 
     @Test(dataProvider="ResolutionProvider")//Testing Resolution for Iphone 5/6/7/plus || Samsung Galaxy S5 and Ipad pro
     public void WebPageDeviceResolutionTest(String width, String height){
         changeResolution(width, height);
 
-        getWebDriver().get(URL);
+       goTo(URL);
 
         HomePage hp = new HomePage();
 

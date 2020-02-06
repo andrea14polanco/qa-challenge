@@ -28,12 +28,12 @@ public class BasePage {
         webDriver = new ChromeDriver(options);
         webDriver.manage().window().maximize();
 
-        wait = new WebDriverWait(webDriver, 20,2);
+        wait = new WebDriverWait(webDriver, 60,2);
     }
 
     public void killDriver() {
-        webDriver.close();
-        webDriver.quit();
+       // webDriver.close();
+        //webDriver.quit();
     }
 
     public void waitVisibility(By elementBy) {
@@ -74,6 +74,7 @@ public class BasePage {
     }
 
     public boolean isElementVisible(By elementBy){
+        waitVisibility(elementBy);
         return  webDriver.findElement(elementBy).isDisplayed();
     }
 
