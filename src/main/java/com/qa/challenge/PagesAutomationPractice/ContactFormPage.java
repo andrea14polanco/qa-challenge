@@ -2,6 +2,7 @@ package com.qa.challenge.PagesAutomationPractice;
 
 import com.qa.challenge.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -13,10 +14,11 @@ public class ContactFormPage extends BasePage {
     By messageInput =  By.id("message");
     By sendBtn = By.id("submitMessage");
     By errorBanner = By.cssSelector("div.alert.alert-danger");
+    private JavascriptExecutor js = (JavascriptExecutor )getWebDriver();
 
     public boolean subjectHeadingSelectIsDisplayed(){
-        getWebDriverWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("id_contact")));
-        return getWebDriver().findElement(By.id("id_contact")).isDisplayed();
+
+        return  js.executeScript("return document.getElementById(\"id_contact\").options.length").toString() != "0";
     }
 
     public boolean emailInputIsDisplayed(){
@@ -51,5 +53,13 @@ public class ContactFormPage extends BasePage {
             writeText(emailInput, text);
     }
 
+
+    public void setTextOnMessageInput(String text){
+            writeText(messageInput, text);
+    }
+
+    public void setSubjectInput(){
+        js.executeScript("document.getElementById(\"id_contact\").options.selectedIndex = 2");
+    }
 
 }
