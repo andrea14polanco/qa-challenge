@@ -14,10 +14,11 @@ public class ContactFormPage extends BasePage {
     By messageInput =  By.id("message");
     By sendBtn = By.id("submitMessage");
     By errorBanner = By.cssSelector("div.alert.alert-danger");
-    private JavascriptExecutor js = (JavascriptExecutor )getWebDriver();
+    By successBanner = By.cssSelector("#center_column > p");
+
 
     public boolean subjectHeadingSelectIsDisplayed(){
-
+        JavascriptExecutor js = (JavascriptExecutor )getWebDriver();
         return  js.executeScript("return document.getElementById(\"id_contact\").options.length").toString() != "0";
     }
 
@@ -40,13 +41,13 @@ public class ContactFormPage extends BasePage {
     public boolean isErrorBannerDisplayed(){
         return isElementVisible(errorBanner);
     }
+    public boolean isSuccessBannerDisplayed(){
+        return isElementVisible(successBanner);
+    }
+
 
     public void clickSendBtn(){
         click(sendBtn);
-    }
-
-    public void clickSubjectHeadingSelectSpan(){
-        click(subjectHeadingSelectSpan);
     }
 
     public void setTextOnEmailInput(String text){
@@ -59,6 +60,7 @@ public class ContactFormPage extends BasePage {
     }
 
     public void setSubjectInput(){
+        JavascriptExecutor js = (JavascriptExecutor )getWebDriver();
         js.executeScript("document.getElementById(\"id_contact\").options.selectedIndex = 2");
     }
 

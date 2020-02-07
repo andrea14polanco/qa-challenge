@@ -16,7 +16,7 @@ public class ContactFormValidationTests extends BaseTest {
     HomePage hp;
     ContactFormPage cfp;
 
-    private static String  data = "ssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssassssssssssssssssssssssssssasssssssssssssssssssssssss"  ;
+    private static String  data = "ssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssassssssssssssssssssssssssssasssssssssssssssssssssssss"  ;
 
     ContactFormValidationTests(){
         hp = new HomePage();
@@ -78,7 +78,7 @@ public class ContactFormValidationTests extends BaseTest {
 
         Assert.assertTrue(cfp.isErrorBannerDisplayed());
 
-        //Validates limit
+        //Invalid data
         cfp.setTextOnMessageInput(data);
 
         cfp.clickSendBtn();
@@ -89,7 +89,7 @@ public class ContactFormValidationTests extends BaseTest {
 
         cfp.clickSendBtn();
 
-        Assert.assertTrue(cfp.isErrorBannerDisplayed());
+        Assert.assertFalse(cfp.isSuccessBannerDisplayed());
 
     }
 
