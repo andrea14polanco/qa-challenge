@@ -42,7 +42,8 @@ public class ContactFormPage extends BasePage {
         return isElementVisible(errorBanner);
     }
     public boolean isSuccessBannerDisplayed(){
-        return isElementVisible(successBanner);
+        JavascriptExecutor js = (JavascriptExecutor )getWebDriver();
+        return  js.executeScript("return document.getElementsByClassName(\"alert\").length").toString() != "0";
     }
 
 

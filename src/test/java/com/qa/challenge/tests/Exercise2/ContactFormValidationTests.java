@@ -16,7 +16,7 @@ public class ContactFormValidationTests extends BaseTest {
     HomePage hp;
     ContactFormPage cfp;
 
-    private static String  data = "ssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssasssssssssssssssssssssssssssassssssssssssssssssssssssssasssssssssssssssssssssssss"  ;
+    private static String  data = "                                            "  ;
 
     ContactFormValidationTests(){
         hp = new HomePage();
@@ -74,22 +74,19 @@ public class ContactFormValidationTests extends BaseTest {
 
     @Test(priority = 4)
     public void messageInputValidationTest(){
-        cfp.clickSendBtn();
-
-        Assert.assertTrue(cfp.isErrorBannerDisplayed());
 
         //Invalid data
         cfp.setTextOnMessageInput(data);
 
         cfp.clickSendBtn();
 
-        Assert.assertTrue(cfp.isErrorBannerDisplayed());
+        Assert.assertFalse(cfp.isSuccessBannerDisplayed());
 
-        cfp.setTextOnEmailInput("andrea@andrea.andrea");
+        //valid data
+        cfp.setTextOnMessageInput("Testing message correctly");
 
         cfp.clickSendBtn();
 
-        Assert.assertFalse(cfp.isSuccessBannerDisplayed());
 
     }
 
